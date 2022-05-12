@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  stockfish:
+    image: tchorwat/stockfish
+    ports:
+      - 23249:23249
+  perception:
+    build:
+      context: ./perception
