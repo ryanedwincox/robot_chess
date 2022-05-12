@@ -7,3 +7,15 @@ services:
   perception:
     build:
       context: ./perception
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=$XAUTH
+    volumes:
+      - type: bind
+        source: /tmp/.X11-unix
+        target: /tmp/.X11-unix
+      - type: bind
+        source: $XAUTH
+        target: $XAUTH
+    ipc: host
+    network_mode: host
