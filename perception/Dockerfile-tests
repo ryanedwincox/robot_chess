@@ -1,0 +1,11 @@
+FROM matimoreyra/opencv
+
+COPY src src
+COPY CMakeLists.txt .
+WORKDIR /build
+RUN cmake ..
+RUN make
+RUN mkdir /test_images
+RUN mkdir /test_output
+
+ENTRYPOINT [ "/build/./perception_tests" ]

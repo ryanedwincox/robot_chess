@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  perception_tests:
+    build:
+      context: ./perception
+      dockerfile: ./Dockerfile-tests
+    volumes:
+      - type: bind
+        source: $PROJECT_DIR/perception/test_images
+        target: /test_images
+        read_only: true
+      - type: bind
+        source: $PROJECT_DIR/perception/test_output
+        target: /test_output
